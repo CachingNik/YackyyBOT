@@ -106,4 +106,10 @@ async def sc(ctx):
     await ctx.send("https://github.com/CachingNik/YackyyBOT")
 
 
+@client.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.MissingPermissions):
+        await ctx.send("❌ Access Denied")
+
+
 client.run(os.getenv("TOKEN"))
