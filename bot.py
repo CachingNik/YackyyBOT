@@ -69,7 +69,7 @@ async def on_message(msg):
     for ch in ['/', "'", ".", "\\", "(", ")", '"', '\n', '@', '<', '>']:
         text = text.replace(ch, '')
 
-    if text != "!shutdown" and text != "!reset" and text != "!sc":
+    if text != "!shutdown" and text != "!reset" and text != "!sc" and text != "!help":
         response = k.respond(text)
         response = response.replace("://", "")
         response = response.replace("@", "")
