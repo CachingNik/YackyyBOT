@@ -37,7 +37,7 @@ async def on_ready():
 @client.event
 async def on_message(msg):
 
-    if msg.channel.name != "chat-with-yackyy" or msg.channel.name != "bottest_2":
+    if msg.channel.name != "chat-with-yackyy":
         return
 
     if msg.author.bot:
