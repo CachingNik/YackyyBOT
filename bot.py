@@ -20,7 +20,7 @@ k = aiml.Kernel()
 
 @client.event
 async def on_ready():
-    channel = client.get_channel(761233422567604254)
+    channel = client.get_channel(760587314207522826)
     k.setBotPredicate("name", "Yackyy")
     if os.path.exists(BRAIN_FILE):
         print("Loading from brain file...")
