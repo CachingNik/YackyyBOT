@@ -64,7 +64,11 @@ async def on_message(msg):
                         cdu.update_one(my_query, {"$set": {"Score": 1, "Time": datetime.datetime.now(), "Hit": False}})
                         print("User cool down removed.")
                 else:
-                    cdu.update_one(my_query, {"$inc": {"Score": 1}, "$set": {"Time": datetime.datetime.now()}})
+                    duration = datetime.datetime.now() - user['Time']
+                    if duration.total_seconds() > 900:
+                        cdu.update_one(my_query, {"$set": {"Score": 1, "Time": datetime.datetime.now(), "Hit": False}})
+                    else:
+                        cdu.update_one(my_query, {"$inc": {"Score": 1}, "$set": {"Time": datetime.datetime.now()}})
                     print("Updating cds for a user...")
         else:
             post = {"User_name": msg.author.name, "User_id": msg.author.id, "Score": 1, "Time": datetime.datetime.now(),
